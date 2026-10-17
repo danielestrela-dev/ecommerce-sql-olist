@@ -1,0 +1,14 @@
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "Pedidos SP marco", [Pedidos],
+        "Vendas SP marco", [Vendas (R$)],
+        "Ticket SP marco", [Ticket medio (R$)],
+        "Vendas SP fevereiro", [Vendas mes anterior (R$)],
+        "Variacao vendas", [Variacao mensal vendas],
+        "Cancelamento elegivel", [Taxa cancelamento elegivel],
+        "Atraso elegivel", [Taxa atraso elegivel]
+    ),
+    DimEstado[Estado] = "SP",
+    DimCalendario[AnoMes] = "2018-03"
+)

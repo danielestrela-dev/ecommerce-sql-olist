@@ -1,0 +1,76 @@
+{
+  "name": "OlistTheme",
+  "dataColors": [
+    "#205F49",
+    "#C66B3C",
+    "#86A965",
+    "#457A94",
+    "#D9B45F",
+    "#765C82"
+  ],
+  "background": "#F6F5F0",
+  "foreground": "#18342E",
+  "tableAccent": "#205F49",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#18342E",
+      "fontSize": 13
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#18342E",
+      "fontSize": 26
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#61746B",
+      "fontSize": 10
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#DCDDD5"
+              }
+            },
+            "radius": 7
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#18342E"
+              }
+            },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    }
+  }
+}

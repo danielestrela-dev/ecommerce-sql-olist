@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "state_table",
+  "position": {
+    "x": 32,
+    "y": 527,
+    "z": 27,
+    "width": 1210,
+    "height": 210,
+    "tabOrder": 27
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimEstado"
+                    }
+                  },
+                  "Property": "Estado"
+                }
+              },
+              "queryRef": "DimEstado.Estado",
+              "nativeQueryRef": "Estado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoPedidos"
+                    }
+                  },
+                  "Property": "Entregas validas"
+                }
+              },
+              "queryRef": "FatoPedidos.Entregas validas",
+              "nativeQueryRef": "Entregas validas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoPedidos"
+                    }
+                  },
+                  "Property": "Entregas atrasadas"
+                }
+              },
+              "queryRef": "FatoPedidos.Entregas atrasadas",
+              "nativeQueryRef": "Entregas atrasadas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoPedidos"
+                    }
+                  },
+                  "Property": "Taxa atraso elegivel"
+                }
+              },
+              "queryRef": "FatoPedidos.Taxa atraso elegivel",
+              "nativeQueryRef": "Taxa atraso elegivel"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoPedidos"
+                    }
+                  },
+                  "Property": "Prazo elegivel (dias)"
+                }
+              },
+              "queryRef": "FatoPedidos.Prazo elegivel (dias)",
+              "nativeQueryRef": "Prazo elegivel (dias)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estados · compare taxa de atraso e volume antes de priorizar'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

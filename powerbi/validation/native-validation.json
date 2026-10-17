@@ -1,0 +1,36 @@
+{
+  "validated_on": "2026-10-17",
+  "application": "Power BI Desktop 2.159.883.0",
+  "native_dax_totals": {
+    "pedidos": 99441,
+    "entregues": 96478,
+    "vendas": 13221498.11,
+    "ticket": 137.0416,
+    "cancelados": 625,
+    "taxa_cancelamento": 0.006285133898492574,
+    "entregas_validas": 96470,
+    "atrasados": 6534,
+    "taxa_atraso": 0.06773090079817559,
+    "prazo_dias": 12.558217098051923
+  },
+  "native_dax_filtered": {
+    "state": "SP",
+    "month": "2018-03",
+    "pedidos": 3037,
+    "vendas": 377034.34,
+    "ticket": 126.9049,
+    "vendas_mes_anterior": 307829.15,
+    "variacao_vendas": 0.22481688300149613,
+    "taxa_cancelamento": 0.006256173855778729,
+    "taxa_atraso": 0.09424436216762033
+  },
+  "checks": {
+    "totals_reconciled": true,
+    "filtered_sales_reconciled": true,
+    "previous_month_sales_reconciled": true,
+    "pbix_archive_integrity": true,
+    "embedded_data_model_present": true,
+    "native_pdf_export_pages": 2,
+    "exported_pages_visually_reviewed": true
+  }
+}

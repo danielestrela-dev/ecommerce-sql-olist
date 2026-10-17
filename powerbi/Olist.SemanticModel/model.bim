@@ -1,0 +1,359 @@
+{
+  "name": "Olist",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "pt-BR",
+    "sourceQueryCulture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "expressions": [
+      {
+        "name": "PastaDados",
+        "kind": "m",
+        "expression": "\"C:\\Users\\Estrela\\OneDrive\\ecommerce-sql-olist\\powerbi\\data\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      }
+    ],
+    "tables": [
+      {
+        "name": "FatoPedidos",
+        "columns": [
+          {
+            "name": "PedidoKey",
+            "dataType": "int64",
+            "sourceColumn": "PedidoKey",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "DataCompra",
+            "dataType": "dateTime",
+            "sourceColumn": "DataCompra",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Estado",
+            "dataType": "string",
+            "sourceColumn": "Estado",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none",
+            "isHidden": false
+          },
+          {
+            "name": "ValorProdutos",
+            "dataType": "decimal",
+            "sourceColumn": "ValorProdutos",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "ValorFrete",
+            "dataType": "decimal",
+            "sourceColumn": "ValorFrete",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "EntregaValida",
+            "dataType": "int64",
+            "sourceColumn": "EntregaValida",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "DiasEntrega",
+            "dataType": "double",
+            "sourceColumn": "DiasEntrega",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Atrasado",
+            "dataType": "int64",
+            "sourceColumn": "Atrasado",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FatoPedidos",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Fonte = Csv.Document(Binary.Decompress(File.Contents(PastaDados & \"\\pedidos.csv.gz\"), Compression.GZip), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Nulos = Table.ReplaceValue(Cabecalhos, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Cabecalhos)),",
+                "    Tipos = Table.TransformColumnTypes(Nulos, {{\"PedidoKey\", Int64.Type}, {\"DataCompra\", type date}, {\"Estado\", type text}, {\"Status\", type text}, {\"ValorProdutos\", Currency.Type}, {\"ValorFrete\", Currency.Type}, {\"EntregaValida\", Int64.Type}, {\"DiasEntrega\", type number}, {\"Atrasado\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Pedidos",
+            "expression": "COUNTROWS(FatoPedidos)",
+            "formatString": "#,##0",
+            "displayFolder": "Volume",
+            "description": "Todos os pedidos no contexto de data da compra e estado, sem excluir status.",
+            "lineageTag": "ae823c7a-1cd7-5f5c-8cf2-0692694fa67f"
+          },
+          {
+            "name": "Pedidos entregues",
+            "expression": "CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Status] = \"delivered\"))",
+            "formatString": "#,##0",
+            "displayFolder": "Volume",
+            "description": "Pedidos com status delivered, inclusive os oito sem cronologia válida para prazo.",
+            "lineageTag": "71f5260d-a934-55d1-ab91-fe0b3d9502aa"
+          },
+          {
+            "name": "Vendas (R$)",
+            "expression": "CALCULATE(SUM(FatoPedidos[ValorProdutos]), KEEPFILTERS(FatoPedidos[Status] = \"delivered\"))",
+            "formatString": "\"R$\" #,##0.00",
+            "displayFolder": "Comercial",
+            "description": "Valor dos produtos de pedidos entregues. Não inclui frete e não representa lucro ou receita líquida.",
+            "lineageTag": "c82925ad-12ca-5c26-b398-d5d59604415d"
+          },
+          {
+            "name": "Ticket medio (R$)",
+            "expression": "DIVIDE([Vendas (R$)], [Pedidos entregues])",
+            "formatString": "\"R$\" #,##0.00",
+            "displayFolder": "Comercial",
+            "description": "Valor dos produtos entregues dividido pelo número de pedidos entregues.",
+            "lineageTag": "71ca4ff2-4031-509a-8a17-65340cab5ba2"
+          },
+          {
+            "name": "Pedidos cancelados",
+            "expression": "CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Status] = \"canceled\"))",
+            "formatString": "#,##0",
+            "displayFolder": "Cancelamentos",
+            "description": "Somente status canceled. Unavailable não é classificado como cancelado.",
+            "lineageTag": "9cafa73b-f84c-53bf-aaaa-13be4a9881de"
+          },
+          {
+            "name": "Taxa cancelamento",
+            "expression": "DIVIDE([Pedidos cancelados], [Pedidos])",
+            "formatString": "0.00%",
+            "displayFolder": "Cancelamentos",
+            "description": "Pedidos canceled divididos por todos os pedidos no contexto.",
+            "lineageTag": "f7f9dcad-a42f-59c0-8074-2718cd695f42"
+          },
+          {
+            "name": "Taxa cancelamento elegivel",
+            "expression": "IF([Pedidos] >= 100, [Taxa cancelamento])",
+            "formatString": "0.00%",
+            "displayFolder": "Cancelamentos",
+            "description": "Taxa exibida somente com pelo menos 100 pedidos no contexto, para não destacar meses de amostra mínima.",
+            "lineageTag": "4fe0fbd8-cb01-5882-9ccc-fbbd7fc19ef6"
+          },
+          {
+            "name": "Entregas validas",
+            "expression": "CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[EntregaValida] = 1))",
+            "formatString": "#,##0",
+            "displayFolder": "Logistica",
+            "description": "Entregues com compra, previsão e entrega válidas, entrega maior ou igual à compra.",
+            "lineageTag": "b156ce01-49b3-5471-b5d0-7d8d82f132be"
+          },
+          {
+            "name": "Entregas atrasadas",
+            "expression": "CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Atrasado] = 1))",
+            "formatString": "#,##0",
+            "displayFolder": "Logistica",
+            "description": "Entrega válida cuja data final é posterior à data prevista, comparadas por dia.",
+            "lineageTag": "adb45e82-e86b-5ddd-831d-9a14149fcbb2"
+          },
+          {
+            "name": "Taxa atraso",
+            "expression": "DIVIDE([Entregas atrasadas], [Entregas validas])",
+            "formatString": "0.00%",
+            "displayFolder": "Logistica",
+            "description": "Entregas atrasadas divididas pelas entregas válidas; cancelados não entram.",
+            "lineageTag": "cf5cc05d-8c1d-50e0-98ad-eb2a68270bec"
+          },
+          {
+            "name": "Prazo medio (dias)",
+            "expression": "CALCULATE(AVERAGE(FatoPedidos[DiasEntrega]), KEEPFILTERS(FatoPedidos[EntregaValida] = 1))",
+            "formatString": "0.0\" dias\"",
+            "displayFolder": "Logistica",
+            "description": "Média de dias corridos fracionários entre a compra e a entrega, apenas entregas válidas.",
+            "lineageTag": "74f9bcac-f7d8-58a5-a9ec-634bfa877d53"
+          },
+          {
+            "name": "Frete medio (R$)",
+            "expression": "DIVIDE(CALCULATE(SUM(FatoPedidos[ValorFrete]), KEEPFILTERS(FatoPedidos[Status] = \"delivered\")), [Pedidos entregues])",
+            "formatString": "\"R$\" #,##0.00",
+            "displayFolder": "Comercial",
+            "description": "Frete dos pedidos entregues dividido pelos pedidos entregues.",
+            "lineageTag": "b4e4f5f1-0c74-559a-a396-75d9ad46f866"
+          },
+          {
+            "name": "Vendas mes anterior (R$)",
+            "expression": "CALCULATE([Vendas (R$)], DATEADD(DimCalendario[Data], -1, MONTH))",
+            "formatString": "\"R$\" #,##0.00",
+            "displayFolder": "Comercial",
+            "description": "Vendas do mês anterior, usando calendário contínuo e data da compra.",
+            "lineageTag": "d53d7b5c-4e60-59ce-9cd7-8c87a0cac96b"
+          },
+          {
+            "name": "Variacao mensal vendas",
+            "expression": "DIVIDE([Vendas (R$)] - [Vendas mes anterior (R$)], [Vendas mes anterior (R$)])",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "displayFolder": "Comercial",
+            "description": "Variação versus mês anterior; sem base de comparação retorna em branco. Meses incompletos exigem cautela.",
+            "lineageTag": "e7820b24-6a9b-5877-b8c7-965cb7c9556f"
+          },
+          {
+            "name": "Taxa atraso elegivel",
+            "expression": "IF([Entregas validas] >= 100, [Taxa atraso])",
+            "formatString": "0.00%",
+            "displayFolder": "Logistica",
+            "description": "Taxa exibida somente com pelo menos 100 entregas válidas no contexto.",
+            "lineageTag": "b3df1ed7-ae0d-5a92-8f13-c7a1444ac41f"
+          },
+          {
+            "name": "Prazo elegivel (dias)",
+            "expression": "IF([Entregas validas] >= 100, [Prazo medio (dias)])",
+            "formatString": "0.0\" dias\"",
+            "displayFolder": "Logistica",
+            "description": "Prazo médio exibido somente com pelo menos 100 entregas válidas no contexto.",
+            "lineageTag": "c41e7118-1928-52f2-b91a-ea9352c30c62"
+          }
+        ]
+      },
+      {
+        "name": "DimCalendario",
+        "columns": [
+          {
+            "name": "Data",
+            "dataType": "dateTime",
+            "sourceColumn": "Data",
+            "summarizeBy": "none",
+            "isKey": true,
+            "formatString": "dd/MM/yyyy"
+          },
+          {
+            "name": "Ano",
+            "dataType": "int64",
+            "sourceColumn": "Ano",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mes",
+            "dataType": "int64",
+            "sourceColumn": "Mes",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "AnoMes",
+            "dataType": "string",
+            "sourceColumn": "AnoMes",
+            "summarizeBy": "none",
+            "sortByColumn": "AnoMesOrdem"
+          },
+          {
+            "name": "AnoMesOrdem",
+            "dataType": "int64",
+            "sourceColumn": "AnoMesOrdem",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCalendario",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Datas = List.Dates(#date(2016,1,1), 1096, #duration(1,0,0,0)),",
+                "    Tabela = Table.FromList(Datas, Splitter.SplitByNothing(), {\"Data\"}),",
+                "    Tipos = Table.TransformColumnTypes(Tabela, {{\"Data\",type date}}),",
+                "    Ano = Table.AddColumn(Tipos,\"Ano\",each Date.Year([Data]),Int64.Type),",
+                "    Mes = Table.AddColumn(Ano,\"Mes\",each Date.Month([Data]),Int64.Type),",
+                "    AnoMes = Table.AddColumn(Mes,\"AnoMes\",each Date.ToText([Data],\"yyyy-MM\"),type text),",
+                "    Ordem = Table.AddColumn(AnoMes,\"AnoMesOrdem\",each [Ano]*100+[Mes],Int64.Type)",
+                "in",
+                "    Ordem"
+              ]
+            }
+          }
+        ],
+        "dataCategory": "Time"
+      },
+      {
+        "name": "DimEstado",
+        "columns": [
+          {
+            "name": "Estado",
+            "dataType": "string",
+            "sourceColumn": "Estado",
+            "summarizeBy": "none",
+            "isKey": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEstado",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "#table(type table [Estado=text], {{\"AC\"}, {\"AL\"}, {\"AM\"}, {\"AP\"}, {\"BA\"}, {\"CE\"}, {\"DF\"}, {\"ES\"}, {\"GO\"}, {\"MA\"}, {\"MG\"}, {\"MS\"}, {\"MT\"}, {\"PA\"}, {\"PB\"}, {\"PE\"}, {\"PI\"}, {\"PR\"}, {\"RJ\"}, {\"RN\"}, {\"RO\"}, {\"RR\"}, {\"RS\"}, {\"SC\"}, {\"SE\"}, {\"SP\"}, {\"TO\"}})"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Compra_Calendario",
+        "fromTable": "FatoPedidos",
+        "fromColumn": "DataCompra",
+        "toTable": "DimCalendario",
+        "toColumn": "Data",
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "isActive": true
+      },
+      {
+        "name": "Estado_Pedidos",
+        "fromTable": "FatoPedidos",
+        "fromColumn": "Estado",
+        "toTable": "DimEstado",
+        "toColumn": "Estado",
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "isActive": true
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"PastaDados\",\"FatoPedidos\",\"DimCalendario\",\"DimEstado\"]"
+      }
+    ]
+  }
+}

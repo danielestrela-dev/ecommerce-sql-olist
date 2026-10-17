@@ -2,3 +2,8 @@ data/raw/*
 data/*.sqlite
 __pycache__/
 *.zip
+**/.pbi/
+powerbi/data/pedidos.csv
+powerbi/validation/schemas/
+powerbi/Olist-Dashboard.pbix
+powerbi/Olist-Dashboard-Final.pbix

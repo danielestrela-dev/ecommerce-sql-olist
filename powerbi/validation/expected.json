@@ -1,0 +1,560 @@
+{
+  "metrics": {
+    "pedidos": 99441,
+    "entregues": 96478,
+    "vendas": 13221498.11,
+    "ticket": 137.0415857501192,
+    "cancelados": 625,
+    "taxa_cancelamento": 0.006285133898492574,
+    "entregas_validas": 96470,
+    "atrasados": 6534,
+    "prazo_medio": 12.558217098051923
+  },
+  "monthly": [
+    {
+      "mes": "2016-09",
+      "pedidos": 4,
+      "entregues": 1,
+      "vendas": 134.97,
+      "ticket": 134.97,
+      "cancelados": 2,
+      "taxa_cancelamento": 0.5,
+      "validas": 1,
+      "atrasados": 1,
+      "prazo": 54.81319444440305
+    },
+    {
+      "mes": "2016-10",
+      "pedidos": 324,
+      "entregues": 265,
+      "vendas": 40325.11,
+      "ticket": 152.17022641509433,
+      "cancelados": 24,
+      "taxa_cancelamento": 0.07407407407407407,
+      "validas": 265,
+      "atrasados": 2,
+      "prazo": 19.600558787545648
+    },
+    {
+      "mes": "2016-12",
+      "pedidos": 1,
+      "entregues": 1,
+      "vendas": 10.9,
+      "ticket": 10.9,
+      "cancelados": 0,
+      "taxa_cancelamento": 0.0,
+      "validas": 1,
+      "atrasados": 0,
+      "prazo": 4.693020833656192
+    },
+    {
+      "mes": "2017-01",
+      "pedidos": 800,
+      "entregues": 750,
+      "vendas": 111798.36,
+      "ticket": 149.06448,
+      "cancelados": 3,
+      "taxa_cancelamento": 0.00375,
+      "validas": 750,
+      "atrasados": 22,
+      "prazo": 12.647043518523995
+    },
+    {
+      "mes": "2017-02",
+      "pedidos": 1780,
+      "entregues": 1653,
+      "vendas": 234223.4,
+      "ticket": 141.69594676346037,
+      "cancelados": 17,
+      "taxa_cancelamento": 0.009550561797752809,
+      "validas": 1653,
+      "atrasados": 49,
+      "prazo": 13.168825248991016
+    },
+    {
+      "mes": "2017-03",
+      "pedidos": 2682,
+      "entregues": 2546,
+      "vendas": 359198.85,
+      "ticket": 141.0836017282011,
+      "cancelados": 33,
+      "taxa_cancelamento": 0.012304250559284116,
+      "validas": 2546,
+      "atrasados": 116,
+      "prazo": 12.951184487834322
+    },
+    {
+      "mes": "2017-04",
+      "pedidos": 2404,
+      "entregues": 2303,
+      "vendas": 340669.68,
+      "ticket": 147.9243074250977,
+      "cancelados": 18,
+      "taxa_cancelamento": 0.0074875207986688855,
+      "validas": 2303,
+      "atrasados": 151,
+      "prazo": 14.917912500404764
+    },
+    {
+      "mes": "2017-05",
+      "pedidos": 3700,
+      "entregues": 3546,
+      "vendas": 489338.25,
+      "ticket": 137.99725042301185,
+      "cancelados": 29,
+      "taxa_cancelamento": 0.007837837837837838,
+      "validas": 3545,
+      "atrasados": 106,
+      "prazo": 11.322362975370565
+    },
+    {
+      "mes": "2017-06",
+      "pedidos": 3245,
+      "entregues": 3135,
+      "vendas": 421923.37,
+      "ticket": 134.58480701754385,
+      "cancelados": 16,
+      "taxa_cancelamento": 0.004930662557781202,
+      "validas": 3135,
+      "atrasados": 95,
+      "prazo": 12.011572704384433
+    },
+    {
+      "mes": "2017-07",
+      "pedidos": 4026,
+      "entregues": 3872,
+      "vendas": 481604.52,
+      "ticket": 124.3813326446281,
+      "cancelados": 28,
+      "taxa_cancelamento": 0.006954793840039742,
+      "validas": 3872,
+      "atrasados": 108,
+      "prazo": 11.592732387196564
+    },
+    {
+      "mes": "2017-08",
+      "pedidos": 4331,
+      "entregues": 4193,
+      "vendas": 554699.7,
+      "ticket": 132.29184354877174,
+      "cancelados": 27,
+      "taxa_cancelamento": 0.006234126067882706,
+      "validas": 4193,
+      "atrasados": 122,
+      "prazo": 11.147124655509886
+    },
+    {
+      "mes": "2017-09",
+      "pedidos": 4285,
+      "entregues": 4150,
+      "vendas": 607399.67,
+      "ticket": 146.36136626506024,
+      "cancelados": 20,
+      "taxa_cancelamento": 0.004667444574095682,
+      "validas": 4150,
+      "atrasados": 182,
+      "prazo": 11.851006528897189
+    },
+    {
+      "mes": "2017-10",
+      "pedidos": 4631,
+      "entregues": 4478,
+      "vendas": 648247.65,
+      "ticket": 144.76276239392587,
+      "cancelados": 26,
+      "taxa_cancelamento": 0.0056143381559058516,
+      "validas": 4478,
+      "atrasados": 187,
+      "prazo": 11.856699698524157
+    },
+    {
+      "mes": "2017-11",
+      "pedidos": 7544,
+      "entregues": 7289,
+      "vendas": 987765.37,
+      "ticket": 135.51452462614898,
+      "cancelados": 37,
+      "taxa_cancelamento": 0.004904559915164369,
+      "validas": 7288,
+      "atrasados": 904,
+      "prazo": 15.161131699240915
+    },
+    {
+      "mes": "2017-12",
+      "pedidos": 5673,
+      "entregues": 5513,
+      "vendas": 726033.19,
+      "ticket": 131.694756031199,
+      "cancelados": 11,
+      "taxa_cancelamento": 0.0019390093424995593,
+      "validas": 5513,
+      "atrasados": 411,
+      "prazo": 15.39491853010823
+    },
+    {
+      "mes": "2018-01",
+      "pedidos": 7269,
+      "entregues": 7069,
+      "vendas": 924645.0,
+      "ticket": 130.80280096194653,
+      "cancelados": 34,
+      "taxa_cancelamento": 0.004677397166047599,
+      "validas": 7069,
+      "atrasados": 403,
+      "prazo": 14.080562613954013
+    },
+    {
+      "mes": "2018-02",
+      "pedidos": 6728,
+      "entregues": 6555,
+      "vendas": 826437.13,
+      "ticket": 126.0773653699466,
+      "cancelados": 73,
+      "taxa_cancelamento": 0.010850178359096314,
+      "validas": 6555,
+      "atrasados": 926,
+      "prazo": 16.94513756815219
+    },
+    {
+      "mes": "2018-03",
+      "pedidos": 7211,
+      "entregues": 7003,
+      "vendas": 953356.25,
+      "ticket": 136.13540625446237,
+      "cancelados": 26,
+      "taxa_cancelamento": 0.0036056025516571903,
+      "validas": 7003,
+      "atrasados": 1328,
+      "prazo": 16.30141017440915
+    },
+    {
+      "mes": "2018-04",
+      "pedidos": 6939,
+      "entregues": 6798,
+      "vendas": 973534.09,
+      "ticket": 143.2088982053545,
+      "cancelados": 15,
+      "taxa_cancelamento": 0.00216169476869866,
+      "validas": 6798,
+      "atrasados": 306,
+      "prazo": 11.499241053674409
+    },
+    {
+      "mes": "2018-05",
+      "pedidos": 6873,
+      "entregues": 6749,
+      "vendas": 977544.69,
+      "ticket": 144.84289376203884,
+      "cancelados": 24,
+      "taxa_cancelamento": 0.003491924923614142,
+      "validas": 6749,
+      "atrasados": 443,
+      "prazo": 11.419028935355149
+    },
+    {
+      "mes": "2018-06",
+      "pedidos": 6167,
+      "entregues": 6099,
+      "vendas": 856077.86,
+      "ticket": 140.36364322020003,
+      "cancelados": 18,
+      "taxa_cancelamento": 0.0029187611480460517,
+      "validas": 6096,
+      "atrasados": 71,
+      "prazo": 9.239216293164453
+    },
+    {
+      "mes": "2018-07",
+      "pedidos": 6292,
+      "entregues": 6159,
+      "vendas": 867953.46,
+      "ticket": 140.9244130540672,
+      "cancelados": 41,
+      "taxa_cancelamento": 0.006516211061665607,
+      "validas": 6156,
+      "atrasados": 208,
+      "prazo": 8.958636237156037
+    },
+    {
+      "mes": "2018-08",
+      "pedidos": 6512,
+      "entregues": 6351,
+      "vendas": 838576.64,
+      "ticket": 132.03851991812314,
+      "cancelados": 84,
+      "taxa_cancelamento": 0.012899262899262898,
+      "validas": 6351,
+      "atrasados": 393,
+      "prazo": 7.732779720462545
+    },
+    {
+      "mes": "2018-09",
+      "pedidos": 16,
+      "entregues": 0,
+      "vendas": 0,
+      "ticket": null,
+      "cancelados": 15,
+      "taxa_cancelamento": 0.9375,
+      "validas": 0,
+      "atrasados": 0,
+      "prazo": null
+    },
+    {
+      "mes": "2018-10",
+      "pedidos": 4,
+      "entregues": 0,
+      "vendas": 0,
+      "ticket": null,
+      "cancelados": 4,
+      "taxa_cancelamento": 1.0,
+      "validas": 0,
+      "atrasados": 0,
+      "prazo": null
+    }
+  ],
+  "states": [
+    {
+      "estado": "AC",
+      "pedidos": 81,
+      "vendas": 15930.97,
+      "validas": 80,
+      "atrasados": 3,
+      "taxa_atraso": 0.0375,
+      "prazo": 21.035712962946853
+    },
+    {
+      "estado": "AL",
+      "pedidos": 413,
+      "vendas": 78855.72,
+      "validas": 397,
+      "atrasados": 85,
+      "taxa_atraso": 0.2141057934508816,
+      "prazo": 24.543855361979436
+    },
+    {
+      "estado": "AM",
+      "pedidos": 148,
+      "vendas": 22155.84,
+      "validas": 145,
+      "atrasados": 4,
+      "taxa_atraso": 0.027586206896551724,
+      "prazo": 26.425990900413357
+    },
+    {
+      "estado": "AP",
+      "pedidos": 68,
+      "vendas": 13374.81,
+      "validas": 67,
+      "atrasados": 2,
+      "taxa_atraso": 0.029850746268656716,
+      "prazo": 27.185067717006792
+    },
+    {
+      "estado": "BA",
+      "pedidos": 3380,
+      "vendas": 493584.14,
+      "validas": 3256,
+      "atrasados": 396,
+      "taxa_atraso": 0.12162162162162163,
+      "prazo": 19.335465824488363
+    },
+    {
+      "estado": "CE",
+      "pedidos": 1336,
+      "vendas": 219757.38,
+      "validas": 1279,
+      "atrasados": 176,
+      "taxa_atraso": 0.1376075058639562,
+      "prazo": 21.266578634927797
+    },
+    {
+      "estado": "DF",
+      "pedidos": 2140,
+      "vendas": 296498.41,
+      "validas": 2080,
+      "atrasados": 118,
+      "taxa_atraso": 0.05673076923076923,
+      "prazo": 12.967568108972717
+    },
+    {
+      "estado": "ES",
+      "pedidos": 2033,
+      "vendas": 268643.45,
+      "validas": 1995,
+      "atrasados": 214,
+      "taxa_atraso": 0.10726817042606517,
+      "prazo": 15.789307110366133
+    },
+    {
+      "estado": "GO",
+      "pedidos": 2020,
+      "vendas": 282836.7,
+      "validas": 1957,
+      "atrasados": 128,
+      "taxa_atraso": 0.06540623403168115,
+      "prazo": 15.606338535454533
+    },
+    {
+      "estado": "MA",
+      "pedidos": 747,
+      "vendas": 117009.38,
+      "validas": 717,
+      "atrasados": 125,
+      "taxa_atraso": 0.17433751743375175,
+      "prazo": 21.572976474119596
+    },
+    {
+      "estado": "MG",
+      "pedidos": 11635,
+      "vendas": 1552481.83,
+      "validas": 11354,
+      "atrasados": 519,
+      "taxa_atraso": 0.04571076272679232,
+      "prazo": 12.008665646063005
+    },
+    {
+      "estado": "MS",
+      "pedidos": 715,
+      "vendas": 115429.97,
+      "validas": 701,
+      "atrasados": 68,
+      "taxa_atraso": 0.09700427960057062,
+      "prazo": 15.618319018474233
+    },
+    {
+      "estado": "MT",
+      "pedidos": 907,
+      "vendas": 152191.62,
+      "validas": 886,
+      "atrasados": 53,
+      "taxa_atraso": 0.05981941309255079,
+      "prazo": 18.05575601172604
+    },
+    {
+      "estado": "PA",
+      "pedidos": 975,
+      "vendas": 174470.59,
+      "validas": 946,
+      "atrasados": 106,
+      "taxa_atraso": 0.11205073995771671,
+      "prazo": 23.77291691136826
+    },
+    {
+      "estado": "PB",
+      "pedidos": 536,
+      "vendas": 112586.82,
+      "validas": 517,
+      "atrasados": 54,
+      "taxa_atraso": 0.10444874274661509,
+      "prazo": 20.426767609615375
+    },
+    {
+      "estado": "PE",
+      "pedidos": 1652,
+      "vendas": 251889.49,
+      "validas": 1593,
+      "atrasados": 153,
+      "taxa_atraso": 0.096045197740113,
+      "prazo": 18.448322994401824
+    },
+    {
+      "estado": "PI",
+      "pedidos": 495,
+      "vendas": 84721.0,
+      "validas": 476,
+      "atrasados": 66,
+      "taxa_atraso": 0.13865546218487396,
+      "prazo": 19.45709826291378
+    },
+    {
+      "estado": "PR",
+      "pedidos": 5045,
+      "vendas": 666063.51,
+      "validas": 4923,
+      "atrasados": 199,
+      "taxa_atraso": 0.04042250660166565,
+      "prazo": 11.991582227413579
+    },
+    {
+      "estado": "RJ",
+      "pedidos": 12852,
+      "vendas": 1759651.13,
+      "validas": 12350,
+      "atrasados": 1495,
+      "taxa_atraso": 0.12105263157894737,
+      "prazo": 15.309437542171539
+    },
+    {
+      "estado": "RN",
+      "pedidos": 485,
+      "vendas": 82105.66,
+      "validas": 474,
+      "atrasados": 44,
+      "taxa_atraso": 0.09282700421940929,
+      "prazo": 19.278156206030438
+    },
+    {
+      "estado": "RO",
+      "pedidos": 253,
+      "vendas": 45682.76,
+      "validas": 243,
+      "atrasados": 7,
+      "taxa_atraso": 0.02880658436213992,
+      "prazo": 19.372036513109755
+    },
+    {
+      "estado": "RR",
+      "pedidos": 46,
+      "vendas": 7057.47,
+      "validas": 41,
+      "atrasados": 5,
+      "taxa_atraso": 0.12195121951219512,
+      "prazo": 29.387546013983922
+    },
+    {
+      "estado": "RS",
+      "pedidos": 5466,
+      "vendas": 728897.47,
+      "validas": 5344,
+      "atrasados": 325,
+      "taxa_atraso": 0.06081586826347305,
+      "prazo": 15.30027619241045
+    },
+    {
+      "estado": "SC",
+      "pedidos": 3637,
+      "vendas": 507012.13,
+      "validas": 3546,
+      "atrasados": 291,
+      "taxa_atraso": 0.08206429780033841,
+      "prazo": 14.95478287676782
+    },
+    {
+      "estado": "SE",
+      "pedidos": 350,
+      "vendas": 56574.19,
+      "validas": 335,
+      "atrasados": 51,
+      "taxa_atraso": 0.15223880597014924,
+      "prazo": 21.51978828081889
+    },
+    {
+      "estado": "SP",
+      "pedidos": 41746,
+      "vendas": 5067633.16,
+      "validas": 40494,
+      "atrasados": 1820,
+      "taxa_atraso": 0.044944930113103174,
+      "prazo": 8.761385996084229
+    },
+    {
+      "estado": "TO",
+      "pedidos": 280,
+      "vendas": 48402.51,
+      "validas": 274,
+      "atrasados": 27,
+      "taxa_atraso": 0.09854014598540146,
+      "prazo": 17.658062609830314
+    }
+  ]
+}

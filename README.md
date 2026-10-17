@@ -6,6 +6,12 @@ Projeto de portfólio de Daniel Estrela com SQL, SQLite e Python. Usa dados púb
 
 **[Abrir análise online](https://danielestrela-dev.github.io/ecommerce-sql-olist/)** · [Consultas SQL](sql/02_analysis.sql) · [Resultados em CSV](results/)
 
+## Dashboard no Power BI
+
+O projeto também inclui um **[painel comercial e logístico no Power BI](powerbi/README.md)**, com duas páginas, arquivo `.pbix` com dados incorporados, medidas DAX e definições das métricas. Essa etapa usa todos os 99.441 pedidos para calcular cancelamentos, mantendo um universo específico de entregas válidas para logística.
+
+[Baixar painel (.pbix)](powerbi/Olist-Dashboard-v1.pbix?raw=true) · [Ver métricas e decisões](powerbi/METRICAS.md) · [Ver medidas DAX](powerbi/medidas.dax)
+
 ## Principais resultados
 
 | Indicador | Resultado |

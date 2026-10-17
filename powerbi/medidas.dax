@@ -1,0 +1,65 @@
+// Referência das medidas. As medidas já estão incluídas no modelo.
+
+// Todos os pedidos no contexto de data da compra e estado, sem excluir status.
+Pedidos =
+COUNTROWS(FatoPedidos)
+
+// Pedidos com status delivered, inclusive os oito sem cronologia válida para prazo.
+Pedidos entregues =
+CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Status] = "delivered"))
+
+// Valor dos produtos de pedidos entregues. Não inclui frete e não representa lucro ou receita líquida.
+Vendas (R$) =
+CALCULATE(SUM(FatoPedidos[ValorProdutos]), KEEPFILTERS(FatoPedidos[Status] = "delivered"))
+
+// Valor dos produtos entregues dividido pelo número de pedidos entregues.
+Ticket medio (R$) =
+DIVIDE([Vendas (R$)], [Pedidos entregues])
+
+// Somente status canceled. Unavailable não é classificado como cancelado.
+Pedidos cancelados =
+CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Status] = "canceled"))
+
+// Pedidos canceled divididos por todos os pedidos no contexto.
+Taxa cancelamento =
+DIVIDE([Pedidos cancelados], [Pedidos])
+
+// Taxa exibida somente com pelo menos 100 pedidos no contexto, para não destacar meses de amostra mínima.
+Taxa cancelamento elegivel =
+IF([Pedidos] >= 100, [Taxa cancelamento])
+
+// Entregues com compra, previsão e entrega válidas, entrega maior ou igual à compra.
+Entregas validas =
+CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[EntregaValida] = 1))
+
+// Entrega válida cuja data final é posterior à data prevista, comparadas por dia.
+Entregas atrasadas =
+CALCULATE([Pedidos], KEEPFILTERS(FatoPedidos[Atrasado] = 1))
+
+// Entregas atrasadas divididas pelas entregas válidas; cancelados não entram.
+Taxa atraso =
+DIVIDE([Entregas atrasadas], [Entregas validas])
+
+// Média de dias corridos fracionários entre a compra e a entrega, apenas entregas válidas.
+Prazo medio (dias) =
+CALCULATE(AVERAGE(FatoPedidos[DiasEntrega]), KEEPFILTERS(FatoPedidos[EntregaValida] = 1))
+
+// Frete dos pedidos entregues dividido pelos pedidos entregues.
+Frete medio (R$) =
+DIVIDE(CALCULATE(SUM(FatoPedidos[ValorFrete]), KEEPFILTERS(FatoPedidos[Status] = "delivered")), [Pedidos entregues])
+
+// Vendas do mês anterior, usando calendário contínuo e data da compra.
+Vendas mes anterior (R$) =
+CALCULATE([Vendas (R$)], DATEADD(DimCalendario[Data], -1, MONTH))
+
+// Variação versus mês anterior; sem base de comparação retorna em branco. Meses incompletos exigem cautela.
+Variacao mensal vendas =
+DIVIDE([Vendas (R$)] - [Vendas mes anterior (R$)], [Vendas mes anterior (R$)])
+
+// Taxa exibida somente com pelo menos 100 entregas válidas no contexto.
+Taxa atraso elegivel =
+IF([Entregas validas] >= 100, [Taxa atraso])
+
+// Prazo médio exibido somente com pelo menos 100 entregas válidas no contexto.
+Prazo elegivel (dias) =
+IF([Entregas validas] >= 100, [Prazo medio (dias)])
