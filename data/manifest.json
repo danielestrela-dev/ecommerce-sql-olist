@@ -1,0 +1,26 @@
+{
+  "files_sha256": {
+    "olist_orders_dataset.csv": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "olist_order_reviews_dataset.csv": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+    "olist_customers_dataset.csv": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "olist_order_items_dataset.csv": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+    "olist_order_payments_dataset.csv": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+  },
+  "quality": {
+    "raw_counts": {
+      "orders": 99441,
+      "reviews": 99224,
+      "customers": 99441,
+      "items": 112650,
+      "payments": 103886
+    },
+    "valid_delivered_orders": 96470,
+    "reviewed_orders": 95824,
+    "delivered_raw": 96478,
+    "extra_review_rows": 551,
+    "purchase_range": {
+      "start": "2016-09-15",
+      "end": "2018-08-29"
+    }
+  }
+}
